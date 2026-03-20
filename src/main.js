@@ -69,7 +69,7 @@ function analyzeSalesData(data, options) {
     typeof calculateRevenue !== "function" ||
     typeof calculateBonus !== "function"
   ) {
-    Error("Некорректные входные опции");
+    throw new Error("Некорректные входные опции");
   }
   if (!calculateRevenue || !calculateBonus) {
     throw new Error("Чего-то не хватает");
