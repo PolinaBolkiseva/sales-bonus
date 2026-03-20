@@ -49,7 +49,11 @@ function calculateBonusByProfit(index, total, seller) {
 function analyzeSalesData(data, options) {
   // @TODO: Проверка входных данных
   if (
-    !data ||
+    !data||
+    !(Object.keys(data).length === 0)||
+    !('customers' in data) ||
+    !('sellers' in data) ||
+    !('purchase_records' in data) ||
     !Array.isArray(data.customers) ||
     !Array.isArray(data.sellers) ||
     !Array.isArray(data.purchase_records) ||
