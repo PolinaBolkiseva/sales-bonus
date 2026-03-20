@@ -50,7 +50,7 @@ function analyzeSalesData(data, options) {
   // @TODO: Проверка входных данных
   if (
     !data||
-    !(Object.keys(data).length === 0)||
+    (Object.keys(data).length === 0)||
     !('customers' in data) ||
     !('sellers' in data) ||
     !('purchase_records' in data) ||
@@ -126,7 +126,7 @@ function analyzeSalesData(data, options) {
         seller.products_sold[item.sku] = 0;
       }
       // По артикулу товара увеличить его проданное количество у продавца
-      seller.products_sold[item.sku]++;
+      seller.products_sold[item.sku]+=item.quantity;
     });
   });
   // @TODO: Сортировка продавцов по прибыли
